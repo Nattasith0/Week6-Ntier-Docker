@@ -29,3 +29,90 @@ Thumbs.db
 
 # Docker
 .docker/
+
+# =========================
+# Node / Frontend build output
+# =========================
+**/dist/
+**/build/
+**/.next/
+**/.nuxt/
+**/.output/
+**/out/
+
+# Vite / Parcel / Webpack cache
+**/.vite/
+**/.parcel-cache/
+**/.cache/
+
+# Turbo / Nx
+**/.turbo/
+**/.nx/
+
+# =========================
+# Test / Coverage
+# =========================
+**/coverage/
+**/.nyc_output/
+
+# =========================
+# Logs (เพิ่มจากที่มี)
+# =========================
+*.log
+*.pid
+*.seed
+*.pid.lock
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# =========================
+# Package managers cache
+# =========================
+.pnpm-store/
+**/.pnpm-store/
+**/.yarn/
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+.yarn/install-state.gz
+
+# =========================
+# Local env files (เผื่อเพิ่ม)
+# =========================
+.env.*
+!.env.example
+
+# =========================
+# Database / Data volumes (สำคัญสำหรับ Docker)
+# (กัน folder ที่เป็น volume ของ postgres/mysql)
+# =========================
+database/data/
+database/pgdata/
+db-data/
+pgdata/
+postgres-data/
+**/data/
+
+# Dump/backup files
+*.dump
+*.backup
+*.sql.gz
+
+# =========================
+# Docker local override / runtime
+# =========================
+docker-compose.override.yml
+.docker/
+
+# =========================
+# OS / Editor เพิ่มเติม
+# =========================
+*.swp
+*.swo
+*~
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
