@@ -3,7 +3,7 @@
 // ENGSE207 - Week 6 Docker Version
 // ============================================
 
-const API_BASE = "https://week6-ntier-docker-production-2a78.up.railway.app";
+const API_BASE = "https://week6-ntier-docker-production-2a78.up.railway.app/api";
 
 // ============================================
 // API Functions
@@ -33,13 +33,13 @@ async function fetchAPI(endpoint, options = {}) {
 
 // Get all tasks
 async function getTasks() {
-    const response = await fetchAPI("/api/tasks");   // ✅ FIX
+    const response = await fetchAPI("/tasks");   // ✅ FIX
     return response.data;
 }
 
 // Create task
 async function createTask(taskData) {
-    const response = await fetchAPI("/api/tasks", {  // ✅ FIX
+    const response = await fetchAPI("/tasks", {  // ✅ FIX
         method: "POST",
         body: JSON.stringify(taskData),
     });
@@ -48,7 +48,7 @@ async function createTask(taskData) {
 
 // Update task
 async function updateTask(id, taskData) {
-    const response = await fetchAPI(`/api/tasks/${id}`, { // ✅ FIX
+    const response = await fetchAPI(`/tasks/${id}`, { // ✅ FIX
         method: "PUT",
         body: JSON.stringify(taskData),
     });
@@ -57,14 +57,14 @@ async function updateTask(id, taskData) {
 
 // Delete task
 async function deleteTask(id) {
-    await fetchAPI(`/api/tasks/${id}`, { // ✅ FIX
+    await fetchAPI(`/tasks/${id}`, { // ✅ FIX
         method: "DELETE",
     });
 }
 
 // Get statistics
 async function getStats() {
-    const response = await fetchAPI("/api/tasks/stats"); // ✅ FIX
+    const response = await fetchAPI("/tasks/stats"); // ✅ FIX
     return response.data;
 }
 
