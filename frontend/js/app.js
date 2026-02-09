@@ -68,13 +68,6 @@ async function getStats() {
     return response.data;
 }
 
-
-// Get statistics
-async function getStats() {
-    const response = await fetchAPI('/tasks/stats');
-    return response.data;
-}
-
 // ============================================
 // UI Functions
 // ============================================
