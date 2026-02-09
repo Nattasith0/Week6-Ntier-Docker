@@ -33,8 +33,19 @@ async function fetchAPI(endpoint, options = {}) {
 
 // Get all tasks
 async function getTasks() {
-    const response = await fetchAPI("/tasks");   // ✅ FIX
-    return response.data;
+    const response = await fetchAPI("/tasks");
+
+    // ✅ normalize status ให้ตรงกับ UI
+    return response.data.map((t) => ({
+        ...t,
+        status:
+            t.status?.toLowerCase() === "doing"
+                ? "IN_PROGRESS"
+                : t.status?.toLowerCase() === "done"
+                    ? "DONE"
+                    : "TODO",
+        priority: (t.priority || "MEDIUM").toUpperCase(),
+    }));
 }
 
 // Create task
@@ -229,8 +240,10 @@ document.getElementById('taskForm').addEventListener('submit', async (e) => {
     const formData = {
         title: document.getElementById('title').value.trim(),
         description: document.getElementById('description').value.trim(),
-        status: document.getElementById('status').value,
-        priority: document.getElementById('priority').value
+
+        // ✅ แปลงตรงนี้
+        status: document.getElementById('status').value.toLowerCase(),
+        priority: document.getElementById('priority').value.toLowerCase()
     };
 
     try {
