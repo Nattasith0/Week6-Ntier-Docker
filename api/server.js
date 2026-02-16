@@ -47,12 +47,13 @@ const corsOptions = {
             callback(null, true); // สำหรับ Lab อนุญาตทั้งหมด
         }
     },
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: false,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
 };
 
 app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 
 // Body parser
 app.use(express.json());
